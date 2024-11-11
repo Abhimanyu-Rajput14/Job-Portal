@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { Job } from './models/job.model.js'; // Update with the correct path to your job model
+import { Job } from './backend/models/job.model.js'; // Update with the correct path to your job model
 
 const MONGO_URI = 'mongodb+srv://abhimanyuraj59:Glxm9Ac33zqwF2aJ@cluster0.cxbew.mongodb.net/test'; // Your MongoDB URI
 
@@ -9,15 +9,15 @@ const removeAllJobs = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    console.log('Connected to MongoDB!');
+    // console.log('Connected to MongoDB!');
 
     await Job.deleteMany({});
-    console.log('All previous jobs removed successfully!');
+    // console.log('All previous jobs removed successfully!');
   } catch (error) {
     console.error('Error removing data:', error);
   } finally {
     await mongoose.disconnect();
-    console.log('Disconnected from MongoDB!');
+    // console.log('Disconnected from MongoDB!');
   }
 };
 // removeAllJobs();
@@ -170,15 +170,15 @@ const insertJobs = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    console.log('Connected to MongoDB!');
+    // console.log('Connected to MongoDB!');
 
     await Job.insertMany(dummyJobs);
-    console.log('new jobs inserted successfully!');
+    // console.log('new jobs inserted successfully!');
   } catch (error) {
     console.error('Error inserting data:', error);
   } finally {
     await mongoose.disconnect();
-    console.log('Disconnected from MongoDB!');
+    // console.log('Disconnected from MongoDB!');
   }
 };
 insertJobs();
